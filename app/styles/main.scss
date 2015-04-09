@@ -4,61 +4,37 @@ body {
   color: #333;
 }
 
-paper-ripple {
-  color: #4285f4;
+* {
+  box-sizing: border-box;
 }
 
-.hero-unit {
-  margin: 50px auto 0 auto;
-  width: 90%;
-  font-size: 18px;
-  font-weight: 200;
-  line-height: 30px;
-  background-color: #eee;
-  border-radius: 6px;
-  padding: 60px;
+input[is=core-input] {
+  width: 30px;
 }
 
-.hero-unit h1 {
-  font-size: 60px;
-  line-height: 1;
-  letter-spacing: -1px;
+.tablet {
+  box-shadow: 1px 1px 9px rgba(0,0,0,0.4);
+  background: #eee;
+  max-width: 640px;
+  padding: 30px;
+  border-radius: 5px;
+  border: 1px solid gray;
+  margin: 50px auto;
+
+  div div {
+    padding: 0 30px;
+  }
 }
 
-.browsehappy {
-  margin: 0.2em 0;
-  background: #ccc;
-  color: #000;
-  padding: 0.2em 0;
+tablet-glass {
+
 }
 
-[drawer] {
-  background-color: #EEEEEE;
+.clearfix:before,
+.clearfix:after {
+  content:"";
+  display:table;
 }
-
-core-toolbar {
-  color: #FAFAFA;
-  background-color: #009688;
+.clearfix:after {
+  clear:both;
 }
-
-paper-button.colored {
-	color: #4285f4;
-}
-
-paper-button[raised].colored {
-	background: #4285f4;
-	color: #fff;
-}
-
-paper-button.custom > core-icon {
-	margin-right: 4px;
-}
-
-paper-button.hover:hover {
-	background: #eee;
-}
-
-paper-button.blue-ripple::shadow #ripple {
-	color: #4285f4;
-}
-

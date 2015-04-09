@@ -12,6 +12,7 @@
 }
 
 .lightness-selector-bg {
+	border: 1px solid #fff;
 	position: relative;
 	width: 100%;
 	border-radius: 100%;
@@ -25,7 +26,7 @@
 
 .lightness-selector {
   position: absolute;
-	box-shadow: inset -3px 2px 9px #000;
+  box-shadow:inset -2px 2px 4px rgba(0,0,0,0.5);
 	left: 0;
 	top: 0;
   width: 100%;
@@ -37,27 +38,4 @@
     padding-top: 100%; 	/* initial ratio of 1:1*/
   }
 }
-
-.elements {
-	position: absolute;
-	width: 100%;
-	clear: both;
-	left: 0;
-	top: 50%;
-}
-
-.setMin, .setMax {
-	float: left;
-	width: 25%;
-	margin: 0;
-	padding: 0;
-}
-
-.lightness {
-	float: left;
-  width: 50%;
-	margin: 0;
-	padding: 0;
-}
-
 
