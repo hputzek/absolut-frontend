@@ -1,44 +1,47 @@
 <link rel="import" href="..\..\bower_components/polymer/polymer.html">
 
-<polymer-element name="tablet-glass" attributes="value">
-  <template>
-    <link rel="stylesheet" href="tablet-glass.css">
-    <core-range min="0" max="255" value="{{value}}" ratio="{{ratio}}"></core-range>
-    <div class="tablet-glass-wrapper">
-      <div class="value-selector" on-down="{{selectorClick}}" style="opacity:{{ratio/100}};">
-        <paper-ripple fit style="z-index:2;"></paper-ripple>
-      </div>
-      <input class="value" value="{{value}}"/>
-    </div>
-  </template>
-  <script>
-    (function () {
-      Polymer({
-        value: "128",
-        selectorClick: function(e) {
-          e.preventDefault();
-          var y = getClickPosition(e);
+<polymer-element name="tablet-glass" attributes="lightness">
+	<template>
+		<link rel="stylesheet" href="tablet-glass.css">
+		<core-range min="0" max="255" value="{{lightness}}" ratio="{{ratio}}"></core-range>
+		<div class="tablet-glass-wrapper">
+			<div class="lightness-selector" on-down="{{selectorClick}}" style="opacity:{{ratio/100}};">
+				<paper-ripple fit style="z-index:2;"></paper-ripple>
+			</div>
+			<input class="lightness" value="{{lightness}}"/>
+		</div>
+	</template>
+	<script>
 
-          function getClickPosition(e) {
-            var parentPosition = getPosition(e.currentTarget);
-            var xPosition = e.clientX - parentPosition.x;
-            var yPosition = e.target.clientHeight - (e.clientY - parentPosition.y);
-            console.log(yPosition);
-          }
+		Polymer('tablet-glass', {
+			ready: function () {
+				var that = this;
+				this.selectorClick = function(e) {
+					e.preventDefault();
+					var y = getClickPosition(e);
 
-          function getPosition(element) {
-            var xPosition = 0;
-            var yPosition = 0;
+					function getClickPosition(e) {
+						var parentPosition = getPosition(e.currentTarget);
+						var xPosition = e.clientX - parentPosition.x;
+						var yPosition = e.target.clientHeight - (e.clientY - parentPosition.y);
+						that.lightness = Math.round((yPosition / e.target.clientHeight) * 255);
+						that.setAttribute('lightness',Math.round((yPosition / e.target.clientHeight) * 255));
+					}
 
-            while (element) {
-              xPosition += (element.offsetLeft - element.scrollLeft + element.clientLeft);
-              yPosition += (element.offsetTop - element.scrollTop + element.clientTop);
-              element = element.offsetParent;
-            }
-            return { x: xPosition, y: yPosition };
-          }
-        }
-      });
-    })();
-  </script>
+					function getPosition(element) {
+						var xPosition = 0;
+						var yPosition = 0;
+
+						while (element) {
+							xPosition += (element.offsetLeft - element.scrollLeft + element.clientLeft);
+							yPosition += (element.offsetTop - element.scrollTop + element.clientTop);
+							element = element.offsetParent;
+						}
+						return { x: xPosition, y: yPosition };
+					}
+				}
+			}
+		});
+
+	</script>
 </polymer-element>

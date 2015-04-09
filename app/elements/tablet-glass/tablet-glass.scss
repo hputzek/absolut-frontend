@@ -7,7 +7,7 @@
   position: relative;
 }
 
-.value-selector {
+.lightness-selector {
   position: relative;
   width: 100%;
   border-radius: 100%;
@@ -23,7 +23,7 @@ paper-ripple {
   pointer-events: none;
 }
 
-.value {
+.lightness {
   position: absolute;
   top: 0;
   left: 0;
