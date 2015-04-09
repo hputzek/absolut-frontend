@@ -5,10 +5,16 @@
 		<link rel="stylesheet" href="tablet-glass.css">
 		<core-range min="0" max="255" value="{{lightness}}" ratio="{{ratio}}"></core-range>
 		<div class="tablet-glass-wrapper">
-			<div class="lightness-selector" on-down="{{selectorClick}}" style="opacity:{{ratio/100}};">
-				<paper-ripple fit style="z-index:2;"></paper-ripple>
+			<div class="lightness-selector-bg">
+				<div class="lightness-selector" on-down="{{selectorClick}}" style="opacity:{{ratio/100}};">
 			</div>
-			<input class="lightness" value="{{lightness}}"/>
+			</div>
+			<div class="elements">
+				<button raised class="setMin" on-click="{{setMin}}">0</button>
+				<input class="lightness" value="{{lightness}}"/>
+				<button raised class="setMax" on-click="{{setMax}}">255</button>
+
+			</div>
 		</div>
 	</template>
 	<script>
@@ -39,6 +45,12 @@
 						}
 						return { x: xPosition, y: yPosition };
 					}
+				},
+				this.setMin = function() {
+					that.lightness = 0;
+				},
+				this.setMax = function() {
+					that.lightness = 255;
 				}
 			}
 		});

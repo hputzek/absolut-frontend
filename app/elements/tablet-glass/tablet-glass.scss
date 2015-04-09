@@ -2,16 +2,35 @@
   display: block;
 }
 
+* {
+	box-sizing: border-box;
+}
+
 .tablet-glass-wrapper{
   width: 100%;
   position: relative;
 }
 
+.lightness-selector-bg {
+	position: relative;
+	width: 100%;
+	border-radius: 100%;
+	background: #000;
+	&:before {
+		content: "";
+		display: block;
+		padding-top: 100%; 	/* initial ratio of 1:1*/
+	}
+}
+
 .lightness-selector {
-  position: relative;
+  position: absolute;
+	box-shadow: inset -3px 2px 9px #000;
+	left: 0;
+	top: 0;
   width: 100%;
   border-radius: 100%;
-  background: #000;
+  background: #fff;
   &:before {
     content: "";
     display: block;
@@ -19,15 +38,26 @@
   }
 }
 
-paper-ripple {
-  pointer-events: none;
+.elements {
+	position: absolute;
+	width: 100%;
+	clear: both;
+	left: 0;
+	top: 50%;
+}
+
+.setMin, .setMax {
+	float: left;
+	width: 25%;
+	margin: 0;
+	padding: 0;
 }
 
 .lightness {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 50px;
+	float: left;
+  width: 50%;
+	margin: 0;
+	padding: 0;
 }
 
 
