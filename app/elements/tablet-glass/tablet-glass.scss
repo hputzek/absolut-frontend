@@ -26,6 +26,7 @@
 
 .lightness-selector {
   position: absolute;
+  overflow: hidden;
   box-shadow:inset -2px 2px 4px rgba(0,0,0,0.5);
 	left: 0;
 	top: 0;
