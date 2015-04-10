@@ -1,5 +1,6 @@
 body {
-  background: #fafafa;
+  background: url(../images/bg.png) #fafafa;
+  background-size: cover;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   color: #333;
 }
@@ -37,4 +38,9 @@ tablet-glass {
 }
 .clearfix:after {
   clear:both;
+}
+
+.help {
+  background: rgba(255,255,255,0.8);
+  padding: 10px;
 }
