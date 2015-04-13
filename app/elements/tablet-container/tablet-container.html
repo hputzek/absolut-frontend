@@ -1,0 +1,28 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<polymer-element name="tablet-container">
+  <template is="autobinding">
+    <link rel="stylesheet" href="tablet-container.css">
+	  <div class="tablet-container">
+		  <template repeat="{{led in leds}}">
+			  <div style="width: 25%; display: inline-block; float: left;">
+				  <tablet-glass lightness="{{led}}"></tablet-glass>
+			  </div>
+		  </template>
+	  </div>
+  </template>
+  <script>
+    (function () {
+      Polymer({
+        // define element prototype here
+		  ready: function () {
+			  this.leds = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+		  },
+		  attributeChanged: function(attrName, oldVal, newVal) {
+			  //var newVal = this.getAttribute(attrName);
+			  console.log(attrName, 'old: ' + oldVal, 'new:', newVal);
+		  }
+      });
+    })();
+  </script>
+</polymer-element>
