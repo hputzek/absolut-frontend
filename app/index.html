@@ -56,14 +56,14 @@
 			<core-toolbar>
 				<paper-icon-button icon="menu" core-drawer-toggle></paper-icon-button>
 				<span>{{appName}}</span>
-				<paper-button>Previous</paper-button>
-				<paper-button>Stop</paper-button>
-				<paper-button>Play</paper-button>
-				<paper-button>Next</paper-button>
-				<paper-slider min="0" max="100" value="50" pin="true"></paper-slider>
-				<paper-progress value="10"></paper-progress>
+				<paper-button id="previous">Previous</paper-button>
+				<paper-button id="stop">Stop</paper-button>
+				<paper-button id="play">Play</paper-button>
+				<paper-button id="next">Next</paper-button>
+				<paper-slider id="speed" min="0" max="100" value="50" pin="true"></paper-slider>
+				<paper-progress id="step" value="10"></paper-progress>
 				<paper-input-decorator label="Step">
-					<input is="core-input">
+					<input id="stepNumber" is="core-input">
 				</paper-input-decorator>
 			</core-toolbar>
 
