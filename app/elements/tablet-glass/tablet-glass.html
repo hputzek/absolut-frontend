@@ -54,9 +54,11 @@
                 },
                         this.setMin = function () {
                             that.lightness = 0;
+                            that.setAttribute('lightness',0);
                         },
                         this.setMax = function () {
                             that.lightness = 255;
+                            that.setAttribute('lightness',255);
                         }
             }
         });

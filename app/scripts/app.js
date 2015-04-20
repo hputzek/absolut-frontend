@@ -18,9 +18,22 @@
 	  updateStep(activeProgram);
 	  handlePrevious();
 	  handleNext();
+	  handlePlayControls();
 	  leds = $('tablet-glass');
-  });
 
+  });
+	var timer = $.timer(1000, function(){
+		saveStep();
+		if(activeStep<16){
+			activeStep++
+		}
+		else {
+			activeStep = 1;
+		}
+		loadStep();
+		updateStep(activeStep);
+	});
+	timer.stop();
 	var programs = createArray(4,16,16);
 	var activeProgram = 1;
 	var activeStep = 1;
@@ -35,6 +48,18 @@
 		setInterval(function () {
 			document.querySelector('#mytablet').leds[Math.floor((Math.random() * 16))] = Math.floor((Math.random() * 255) + 1);
 		}, 100);
+	}
+
+	function handlePlayControls(){
+		$('#play').click(function(){
+			timer.reset();
+		});
+		$('#stop').click(function(){
+			timer.stop();
+		});
+		$('#speed').on('core-change',function(){
+			timer.reset($(this).attr('aria-valuenow'));
+		});
 	}
 
 	function createArray(length) {
@@ -96,14 +121,32 @@
 	}
 
 	function showOutput() {
+		var o = '{\n';
 		// generate Output here
+		for (var p = 0; p < 4; p++) {
+			o+= '{\n'	;
+			for (var s = 0; s < 16; s++) {
+				o+= '{'	;
+				o+= programs[p][s].toString();
+				o+='}';
+				if(s<=14){
+					o+=',';
+				}
+			}
+			o+='\n}';
+			if(p<3){
+				o+=',\n';
+			}
+		}
+		o += '\n}';
+		console.log(o);
 	}
 
 
 	function updateStep(stepNumber){
+		showOutput();
 		$('#step').attr('value',100/16*stepNumber);
-		$('#stepNumber').attr('value',stepNumber);
-		console.log(stepNumber);
+		$('#stepNumber').html(stepNumber);
 	}
 
 // wrap document so it plays nice with other libraries

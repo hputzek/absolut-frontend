@@ -41,12 +41,19 @@ body {
 	box-shadow: 1px 1px 9px rgba(0,0,0,0.4);
 	background: #eee;
 	max-width: 640px;
-	padding: 30px;
+	padding: 0 30px 30px 30px;
 	border-radius: 5px;
 	border: 1px solid gray;
 	margin: 50px auto;
+  	paper-progress {
+	  margin-bottom: 20px;
+	}
 }
 
 tablet-glass {
 	margin: 0 15%;
+}
+
+core-toolbar, [drawer] {
+  background: rgba(255,255,255,0.8);
 }
