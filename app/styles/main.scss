@@ -23,3 +23,30 @@ body {
   background: rgba(255,255,255,0.8);
   padding: 10px;
 }
+
+.clearfix {}
+
+.clearfix:before,
+.clearfix:after {
+	content:"";
+	display:table;
+}
+.clearfix:after {
+	clear:both;
+}
+
+.tablet-container {
+	margin: 0 -15%;
+	@extend .clearfix;
+	box-shadow: 1px 1px 9px rgba(0,0,0,0.4);
+	background: #eee;
+	max-width: 640px;
+	padding: 30px;
+	border-radius: 5px;
+	border: 1px solid gray;
+	margin: 50px auto;
+}
+
+tablet-glass {
+	margin: 0 15%;
+}
