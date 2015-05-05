@@ -15,6 +15,7 @@
 	<!-- build:js bower_components/webcomponentsjs/webcomponents.min.js -->
 	<script src="bower_components/webcomponentsjs/webcomponents.js"></script>
 	<script src="bower_components/jquery/dist/jquery.min.js"></script>
+	<script src="bower_components/jquery-total-storage/jquery.total-storage.js"></script>
 	<script src="scripts/jquery.timer.js"></script>
 	<!-- endbuild -->
 
@@ -46,8 +47,12 @@
 					<b>w:</b>   set lightness to maximum.<br/>
 				</p>
 				<p>Current step: <b id="stepNumber"></b></p>
-				<p>Set speed here:</p>
-				<paper-slider id="speed" min="80" max="2000" value="1000" pin="true"></paper-slider>
+				<p>Step duration:</p>
+				<paper-slider id="speed" min="80" max="1000" value="300" pin="true"></paper-slider>
+
+				<div style="text-align: center;margin-top:30px;">
+					<img src="images/save.svg" class="export" title="Export arduino-style array" style="width:50%;height:auto;cursor:pointer"/>
+				</div>
 			</div>
 		</core-header-panel>
 
@@ -62,6 +67,9 @@
 				<paper-button id="next">Next</paper-button>
 			</core-toolbar>
 			<!-- Main Content -->
+			<div class="export-window">
+					<textarea id="exportTextField"></textarea>
+			</div>
 			<div class="tablet-container">
 				<paper-progress id="step" value="10" style="width:100%"></paper-progress>
 				<div style="width: 25%; display: inline-block; float: left;">
